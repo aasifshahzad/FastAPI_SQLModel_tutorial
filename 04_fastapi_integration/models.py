@@ -26,6 +26,7 @@ from sqlmodel import Field, Relationship, SQLModel
 class HeroBase(SQLModel):
     name: str = Field(index=True)
     secret_name: str
+    team_id: int | None = Field(default=None, foreign_key="team.id")    
 
 class Hero(HeroBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
